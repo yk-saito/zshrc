@@ -40,6 +40,18 @@ precmd() {
   git_prompt
 }
 
+#------------------------#
+#  プロンプトの補完設定  #
+#------------------------#
+# 補完機能を有効にする
+autoload -U compinit
+compinit
+
+zstyle ':completion:*:setopt:*' menu true select
+
+# 補完で小文字でも大文字にマッチさせる
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 #-------------------#
 #  モジュールの有効化  #
 #-------------------#
