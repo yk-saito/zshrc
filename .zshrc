@@ -1,13 +1,18 @@
-#---------------------#
+#----------------------#
+#  モジュールの有効化  #
+#----------------------#
+autoload -Uz colors && colors
+
+#------------------------#
 #  プロンプトの表示設定  #
-#---------------------#
+#------------------------#
 source ~/.git-prompt.sh
 
 # addされていない変更がある場合は`*`
 # commitされていない変更がある場合は`+`を表示
 GIT_PS1_SHOWDIRTYSTATE=true
 
-# stashがある場合は`$`を表示
+# stashがある場合は`$`を表示 
 GIT_PS1_SHOWSTASHSTATE=true
 
 # addされていない新規ファイルがある場合は`%`を表示
@@ -52,10 +57,11 @@ zstyle ':completion:*:setopt:*' menu true select
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-#-------------------#
-#  モジュールの有効化  #
-#-------------------#
-autoload -Uz colors && colors
+#----------------#
+#  lsの表示設定  #
+#----------------#
+# 色をつける
+alias ls='ls -G'
 
 #-------#
 #  nvm  #
@@ -69,16 +75,10 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 export PATH=/opt/homebrew/bin:$PATH
 
 if type brew &>/dev/null; then
-    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /opt/homebrew/share/zsh-autosugitggestions/zsh-autosuggestions.zsh
 fi
 
 #-------#
 #  gpg  #
 #-------#
 export GPG_TTY=$TTY
-
-#--------------#
-#  lsの表示設定  #
-#--------------#
-# 色をつける
-alias ls='ls -G'
